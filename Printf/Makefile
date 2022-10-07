@@ -1,17 +1,17 @@
-NAME = libftprintf.a
+NAME = ft_printf.a
 
-SRCS = $(wildcard *.c) $(wildcard ./Libft/annexes_printf/*.c) 
+SRCS = $(wildcard *.c) 
 
 OBJS = ${SRCS:.c=.o}
 
-CC = gcc -Wall -Wextra 
+CC = gcc -Wall -Werror -Wextra -I ./
 
-%.o: %.c libftprintf.h
+%.o: %.c ft_printf.h
 			${CC} -I. -c $< -o ${<:.c=.o}
 
 all: 	${NAME}
 
-${NAME}:	${OBJS} libftprintf.h
+${NAME}:	${OBJS} ft_printf.h
 				ar -rsc ${NAME} ${OBJS}
 
 clean:	

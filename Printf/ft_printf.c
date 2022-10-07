@@ -6,11 +6,11 @@
 /*   By: vde-leus <vde-leus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 17:18:05 by vde-leus          #+#    #+#             */
-/*   Updated: 2022/09/23 18:01:59 by vde-leus         ###   ########.fr       */
+/*   Updated: 2022/10/07 11:02:59 by vde-leus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static size_t	ft_transfo(va_list arg_ptr, char s)
 {
@@ -68,6 +68,7 @@ int	ft_printf(char *str, ...)
 		}
 		i++;
 	}
+	va_end(arg_ptr);
 	return (count);
 }
 
