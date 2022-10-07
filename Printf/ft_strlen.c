@@ -6,11 +6,11 @@
 /*   By: vde-leus <vde-leus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:53:37 by vde-leus          #+#    #+#             */
-/*   Updated: 2022/10/07 11:08:50 by vde-leus         ###   ########.fr       */
+/*   Updated: 2022/10/07 11:16:13 by vde-leus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 size_t	ft_strlen(char *str)
 {

@@ -6,17 +6,22 @@
 /*   By: vde-leus <vde-leus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:05:19 by vde-leus          #+#    #+#             */
-/*   Updated: 2022/10/07 11:08:45 by vde-leus         ###   ########.fr       */
+/*   Updated: 2022/10/07 12:13:33 by vde-leus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 size_t	ft_putstr(char *str)
 {
 	int	i;
 	int	len;
 
+	if (str == NULL)
+	{	
+		ft_putchar('\0');
+		return (0);
+	}
 	i = 0;
 	while (str[i])
 	{

@@ -6,32 +6,45 @@
 /*   By: vde-leus <vde-leus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 11:15:02 by vde-leus          #+#    #+#             */
-/*   Updated: 2022/10/07 11:08:15 by vde-leus         ###   ########.fr       */
+/*   Updated: 2022/10/07 14:15:05 by vde-leus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
+#include <stdio.h>
 
 /* Recuperation de l adresse et conversion en base hexadecimale */
+
+static int	ft_len_nbr_hex(unsigned long nbr)
+{
+	int	i;
+
+	i = 0;
+	while (nbr)
+	{
+		nbr = nbr / 16;
+		i = i + 1;
+	}
+	return (i);
+}
 
 static char	*ft_putbase_hex_mini(unsigned long adress)
 {
 	char			*resultat;
 	char			*base;
 	int				i;
-	unsigned long	adress_bis;
 
 	base = "0123456789abcdef";
-	adress_bis = adress;
-	i = 0;
-	if (adress_bis == 0)
-		return ("0");
-	while (adress_bis)
-	{
-		adress_bis = adress_bis / 16;
-		i = i + 1;
+	if (adress == 0)
+	{	
+		resultat = (char *)malloc(sizeof(char));
+		*resultat = '\0';
+		return (resultat);
 	}
+	i = ft_len_nbr_hex(adress);
 	resultat = (char *)malloc(sizeof(char) * (i + 1));
+	if (!resultat)
+		return (NULL);
 	resultat[i] = '\0';
 	i = i - 1;
 	while (i >= 0)
@@ -50,13 +63,12 @@ size_t	ft_putadress_min_hex(void *entree)
 {
 	char	*resultat;
 	size_t	len;
-	char	*begin;
 
-	begin = "0x";
 	resultat = ft_putbase_hex_mini((unsigned long)entree);
 	len = ft_strlen(resultat);
-	ft_putstr(begin);
+	ft_putstr("0x");
 	ft_putstr(resultat);
+	free(resultat);
 	return (len + 2);
 }
 

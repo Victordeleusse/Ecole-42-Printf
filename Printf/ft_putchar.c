@@ -6,11 +6,11 @@
 /*   By: vde-leus <vde-leus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:14:17 by vde-leus          #+#    #+#             */
-/*   Updated: 2022/10/07 11:08:24 by vde-leus         ###   ########.fr       */
+/*   Updated: 2022/10/07 11:16:32 by vde-leus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 size_t	ft_putchar(char c)
 {

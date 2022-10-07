@@ -6,11 +6,11 @@
 /*   By: vde-leus <vde-leus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 15:21:37 by vde-leus          #+#    #+#             */
-/*   Updated: 2022/10/07 11:08:30 by vde-leus         ###   ########.fr       */
+/*   Updated: 2022/10/07 11:16:29 by vde-leus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 static char	*ft_putbase_hex_maj(int nbr)
 {

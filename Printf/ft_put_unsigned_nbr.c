@@ -6,11 +6,11 @@
 /*   By: vde-leus <vde-leus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 15:41:52 by vde-leus          #+#    #+#             */
-/*   Updated: 2022/10/07 11:10:25 by vde-leus         ###   ########.fr       */
+/*   Updated: 2022/10/07 11:16:09 by vde-leus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 static size_t	ft_len_nbr(unsigned int nbr)
 {
