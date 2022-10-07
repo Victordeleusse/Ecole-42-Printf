@@ -6,7 +6,7 @@
 /*   By: vde-leus <vde-leus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:05:19 by vde-leus          #+#    #+#             */
-/*   Updated: 2022/10/07 12:13:33 by vde-leus         ###   ########.fr       */
+/*   Updated: 2022/10/07 14:56:35 by vde-leus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ size_t	ft_putstr(char *str)
 
 	if (str == NULL)
 	{	
-		ft_putchar('\0');
-		return (0);
+		write(1, "(null)", 6);
+		return (6);
 	}
 	i = 0;
 	while (str[i])

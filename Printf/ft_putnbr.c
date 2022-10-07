@@ -6,7 +6,7 @@
 /*   By: vde-leus <vde-leus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 15:35:59 by vde-leus          #+#    #+#             */
-/*   Updated: 2022/10/07 11:16:19 by vde-leus         ###   ########.fr       */
+/*   Updated: 2022/10/07 14:59:56 by vde-leus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,10 @@ size_t	ft_putnbr(int nbr)
 	if (nbr == -2147483648)
 	{
 		write(1, "-2147483648", 11);
+		len = 11;
+		return (len);
 	}
-	if (nbr < 0)
+	else if (nbr < 0)
 	{
 		ft_putchar('-');
 		nbr = -1 * nbr;

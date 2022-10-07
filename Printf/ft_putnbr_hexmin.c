@@ -6,48 +6,34 @@
 /*   By: vde-leus <vde-leus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:11:36 by vde-leus          #+#    #+#             */
-/*   Updated: 2022/10/07 11:16:26 by vde-leus         ###   ########.fr       */
+/*   Updated: 2022/10/07 16:02:43 by vde-leus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
-static char	*ft_putbase_hex_mini(int nbr)
+size_t	ft_putnbr_hexmin(unsigned int nbr)
 {
-	char			*resultat;
-	char			*base;
-	int				i;
-	int				nbr_bis;
-
-	base = "0123456789abcdef";
-	nbr_bis = nbr;
-	i = 0;
-	if (nbr_bis == 0)
-		return ("0");
-	while (nbr_bis)
-	{
-		nbr_bis = nbr_bis / 16;
-		i = i + 1;
-	}
-	resultat = (char *)malloc(sizeof(char) * (i + 1));
-	resultat[i] = '\0';
-	i = i - 1;
-	while (i >= 0)
-	{
-		resultat[i] = base[nbr % 16];
-		nbr = nbr / 16;
-		i--;
-	}
-	return (resultat);
+	if (nbr / 16)
+		return (ft_putnbr_hexmin(nbr / 16) + ft_putnbr_hexmin(nbr % 16));
+	else if (!(nbr / 10))
+		ft_putchar(nbr + '0');
+	else
+		ft_putchar(nbr - 10 + 'a');
+	return (1);
 }
 
-size_t	ft_putnbr_hexmin(int nbr)
-{
-	size_t	taille;
-	char	*resultat;
+// int	main(void)
+// {
+// 	int	nbr = -42;
+// 	int i;
+// 	int test;
 
-	resultat = ft_putbase_hex_mini(nbr);
-	ft_putstr(resultat);
-	taille = ft_strlen(resultat);
-	return (taille);
-}
+// 	i = printf("la fonction affiche %x\n", nbr);
+// 	printf("la fonction vaut %d\n", i);
+// 	test = ft_putnbr_hexmin(nbr);
+// 	printf("\n");
+// 	printf("la fonction vaut %d\n", test);
+// 	return (0);
+// }

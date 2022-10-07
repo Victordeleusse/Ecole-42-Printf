@@ -1,4 +1,4 @@
-NAME = ft_printf.a
+NAME = libftprintf.a
 
 SRCS = $(wildcard *.c) 
 

@@ -6,7 +6,7 @@
 /*   By: vde-leus <vde-leus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 11:15:02 by vde-leus          #+#    #+#             */
-/*   Updated: 2022/10/07 14:26:17 by vde-leus         ###   ########.fr       */
+/*   Updated: 2022/10/07 14:44:53 by vde-leus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@ static char	*ft_putbase_hex_mini(unsigned long adress)
 	base = "0123456789abcdef";
 	if (adress == 0)
 	{	
-		resultat = (char *)malloc(sizeof(char));
-		*resultat = '\0';
+		resultat = (char *)malloc(sizeof(char) * 2);
+		resultat[0] = '0';
+		resultat[1] = '\0';
 		return (resultat);
 	}
 	i = ft_len_nbr_hex(adress);
