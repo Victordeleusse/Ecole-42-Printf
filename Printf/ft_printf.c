@@ -6,7 +6,7 @@
 /*   By: vde-leus <vde-leus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 17:18:05 by vde-leus          #+#    #+#             */
-/*   Updated: 2022/10/07 13:37:36 by vde-leus         ###   ########.fr       */
+/*   Updated: 2022/11/08 13:51:26 by vde-leus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,27 +73,3 @@ int	ft_printf(const char *str, ...)
 	va_end(arg_ptr);
 	return (count);
 }
-
-// int	main(void)
-// {
-// 	//int	test;
-// 	// //int	*ptr_test;
-// 	char	monsieur[] = "Victor";
-// 	int		i = 10;
-
-// 	// test = 5473882;
-// 	// //ptr_test = &test;
-// 	// ft_putchar('\n');
-// 	// ft_putchar('\n');
-// 	// i = ft_printf("Bonjour %s numero %u %%", "Titouan", 54);
-// 	// ft_putchar('\n');
-// 	// ft_putchar('\n');
-// 	// ft_putstr("Le nombre de caracteres imprimes vaut : ");
-// 	// ft_putnbr(i);
-// 	// ft_putchar('\n');
-// 	// return (0);
-// 	//test = ft_printf((" mon test : NULL %s NULL \n", NULL));
-// 	printf(("Hello, comment allez-vous %s ?\n", "hello"));
-// 	return(0);
-// }
- 
