@@ -1,6 +1,7 @@
 NAME = libftprintf.a
 
-SRCS = $(wildcard *.c) 
+SRCS = ft_strlen.c ft_putstr.c ft_putnbr.c ft_putnbr_hexmin.c ft_putnbr_hexmaj.c \
+				ft_putchar.c ft_putadress_hex.c ft_put_unsigned_nbr.c ft_printf.c
 
 OBJS = ${SRCS:.c=.o}
 
