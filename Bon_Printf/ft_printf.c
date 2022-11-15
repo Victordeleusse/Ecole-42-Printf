@@ -6,7 +6,7 @@
 /*   By: vde-leus <vde-leus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 17:18:05 by vde-leus          #+#    #+#             */
-/*   Updated: 2022/11/08 17:56:31 by vde-leus         ###   ########.fr       */
+/*   Updated: 2022/11/15 15:01:32 by vde-leus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,12 @@ int	ft_printf(const char *str, ...)
 	int		count;
 	int		i;
 
-	i = 0;
+	if (!str)
+		return (-1);
+	i = -1;
 	count = 0;
 	va_start(arg_ptr, str);
-	while (str[i])
+	while (str[++i])
 	{
 		if (str[i] == '%' && ft_check(str[i + 1]) == 1)
 			count += ft_transfo(arg_ptr, str[++i]);
@@ -64,12 +66,8 @@ int	ft_printf(const char *str, ...)
 		else
 		{
 			if (str[i] != '%')
-			{	
-				ft_putchar(str[i]);
-				count += 1;
-			}
+				count += ft_putchar(str[i]);
 		}
-		i++;
 	}
 	va_end(arg_ptr);
 	return (count);
@@ -77,11 +75,14 @@ int	ft_printf(const char *str, ...)
 
 // int	main(void)
 // {
+// 	int		n = 0;
+// 	char	test[] = "Victor";
+// 	int		test_int = __INT_MAX__;
 
-// 	int a = printf("Son adresse est %p\n", (void *)0);
-// 	printf("%d\n", a);
-// 	int b = ft_printf("Son adresse est %p\n", (void *)0);
-// 	printf("%d\n", b);
-
+// 	n = ft_printf("Bonjour %s vous avez %d a %p\n", test, test_int, &test);
+// 	printf("%d\n", n);
+// 	printf("\nvs. real fuction\n");
+// 	n = printf("Bonjour %s vous avez %d a %p\n", test, test_int, &test);
+// 	printf("%d\n", n);
 // 	return (0);
 // }

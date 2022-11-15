@@ -13,10 +13,10 @@ CC = gcc -Wall -Werror -Wextra -I ./
 all: 	${NAME}
 
 ${NAME}:	${OBJS} ft_printf.h
-				ar -rsc ${NAME} ${OBJS}
+				ar -rsc ${NAME} ${OBJS} 
 
 clean:	
-		rm -f ${OBJS}
+		rm -f ${OBJS} 
 
 fclean:	clean
 		rm -f ${NAME}
