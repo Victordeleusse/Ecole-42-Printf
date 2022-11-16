@@ -6,7 +6,7 @@
 /*   By: vde-leus <vde-leus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 17:18:05 by vde-leus          #+#    #+#             */
-/*   Updated: 2022/11/15 15:01:32 by vde-leus         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:19:26 by vde-leus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ static int	ft_check(const char c)
 	if (c == 'd' || c == 's' || c == 'c' || c == 'p' || c == 'x' || c == 'X'
 		|| c == 'i' || c == '%' || c == 'u')
 		return (1);
+	else if (c != '\0')
+		return (2);
 	return (0);
 }
 
@@ -61,8 +63,10 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%' && ft_check(str[i + 1]) == 1)
 			count += ft_transfo(arg_ptr, str[++i]);
+		else if (str[i] == '%' && ft_check(str[i + 1]) == 2)
+			count += ft_transfo(arg_ptr, str[i]);
 		else if (str[i] == '%' && str[i + 1] == '\0')
-			return (count);
+			return (-1);
 		else
 		{
 			if (str[i] != '%')
@@ -75,14 +79,75 @@ int	ft_printf(const char *str, ...)
 
 // int	main(void)
 // {
-// 	int		n = 0;
-// 	char	test[] = "Victor";
-// 	int		test_int = __INT_MAX__;
+// 	int		original;
+// 	int		mine;
+// 	char	*str;
 
-// 	n = ft_printf("Bonjour %s vous avez %d a %p\n", test, test_int, &test);
-// 	printf("%d\n", n);
-// 	printf("\nvs. real fuction\n");
-// 	n = printf("Bonjour %s vous avez %d a %p\n", test, test_int, &test);
-// 	printf("%d\n", n);
-// 	return (0);
+// 	str = "Just some text..";
+
+// 	printf("\n\n--- ALL ---\n");
+// 	original = printf("-> %c | %s | %p | %d | %i | %u | %x | %X | %% |", str[0], str, str, 42, 42, 42, 42, 42);
+// 	printf("\n");
+// 	mine = ft_printf("-> %c | %s | %p | %d | %i | %u | %x | %X | %% |", str[0], str, str, 42, 42, 42, 42, 42);
+// 	printf("\n");
+// 	printf("%d  : %d\n", original, mine);
+
+// 	printf("\n\n--- SAME WITH %%%%%% AT THE END ---\n");
+// 	original = printf("-> %c | %s | %p | %d | %i | %u | %x | %X | %% |%%%", str[0], str, str, 42, 42, 42, 42, 42);
+// 	printf("\n");
+// 	mine = ft_printf("-> %c | %s | %p | %d | %i | %u | %x | %X | %% |%%%", str[0], str, str, 42, 42, 42, 42, 42);
+// 	printf("\n");
+// 	printf("%d  : %d\n", original, mine);
+
+// 	printf("\n\n--- SAME WITH %%%%%% AT THE END AND SOME TEXT ---\n");
+// 	original = printf("-> %c | %s | %p | %d | %i | %u | %x | %X | %% |%%%| texte", str[0], str, str, 42, 42, 42, 42, 42);
+// 	printf("\n");
+// 	mine = ft_printf("-> %c | %s | %p | %d | %i | %u | %x | %X | %% |%%%| texte", str[0], str, str, 42, 42, 42, 42, 42);
+// 	printf("\n");
+// 	printf("%d  : %d\n", original, mine);
+
+// 	printf("\n\n--- EMPTY STRING ---\n");
+// 	original = printf("");
+// 	mine = ft_printf("");
+// 	printf("%d  : %d\n", original, mine);
+
+// 	printf("\n\n--- WITH ft_printf(0) ---\n");
+// 	original = printf(0);
+// 	mine = ft_printf(0);
+// 	printf("%d  : %d\n", original, mine);
+
+// 	printf("\n\n--- WITH STR AS ONLY ARGUMENT ---\n");
+// 	original = printf(str);
+// 	printf("\n");
+// 	mine = ft_printf(str);
+// 	printf("\n");
+// 	printf("%d  : %d\n", original, mine);
+
+// 	printf("\n\n--- WITH NULL AS STRING AND ADRESS ---\n");
+// 	original = printf("-> %s | %p", NULL, NULL);
+// 	printf("\n");
+// 	mine = ft_printf("-> %s | %p", NULL, NULL);
+// 	printf("\n");
+// 	printf("%d  : %d\n", original, mine);
+
+// 	printf("\n\n--- WITH TAB AND ANTICIPATED END OF STRING ---\n");
+// 	original = printf("-> \t|\0\0gloubiboulgah");
+// 	printf("\n");
+// 	mine = ft_printf("-> \t|\0\0gloubiboulgah");
+// 	printf("\n");
+// 	printf("%d  : %d\n", original, mine);
+
+// 	printf("\n\n--- WITH NEGATIVE VALUES ---\n");
+// 	original = printf("%u | %x | %X | %d | %i | %c | %p", -42, -42, -42, -42, -42, -42, (void *) -42);
+// 	printf("\n");
+// 	mine = ft_printf("%u | %x | %X | %d | %i | %c | %p", -42, -42, -42, -42, -42, -42, (void *) -42);
+// 	printf("\n");
+// 	printf("%d  : %d\n", original, mine);
+
+// 	printf("\n\n--- PRINT ADRESS WITH %%x and %%X ---\n");
+// 	original = printf("%x | %X | %x | %X", NULL, NULL, &str, &str);
+// 	printf("\n");
+// 	mine = ft_printf("%x | %X | %x | %X", NULL, NULL, &str, &str);
+// 	printf("\n");
+// 	printf("%d  : %d\n", original, mine);
 // }
